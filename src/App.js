@@ -4,6 +4,8 @@ import Routes from './routes';
 
 import GlobalStyle from './styles/global';
 
+import './materialize-src/sass/materialize.scss'
+
 function App() {
   return (
     <>
