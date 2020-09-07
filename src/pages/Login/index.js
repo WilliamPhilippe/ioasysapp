@@ -35,6 +35,14 @@ function Login({ history }) {
             <img src={Logo} alt="Ioasys Logo" />
           </LogoContainer>
 
+          <h5>Bem vindo ao Empresas</h5>
+
+          {loading && (
+            <Loading>
+              <i className="small material-icons">autorenew</i>
+            </Loading>
+          )}
+
           <div className="row">
             <form className="col s12" onSubmit={handleSubmit(onSubmit)}>
               <div

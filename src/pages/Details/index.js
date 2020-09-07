@@ -45,7 +45,14 @@ function Home({ history, match }) {
         <NavContent>
           <div className="nav-wrapper">
             <div className="row">
-              <LogoContainer className="imgedit col s12">
+              <div
+                onClick={() => history.push('/')}
+                style={{ cursor: 'pointer' }}
+                className="col s4"
+              >
+                <i className="material-icons">arrow_back</i>
+              </div>
+              <LogoContainer className="imgedit col s4">
                 <img
                   src={Logo}
                   alt="ioasys"

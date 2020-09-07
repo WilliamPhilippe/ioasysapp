@@ -34,11 +34,11 @@
       overflow: hidden;
     }
     .card-image + .card-content {
-      max-height: 40%;
+      max-height: 60%;
     }
     .card-content {
       max-height: 100%;
-      overflow: hidden;
+      overflow: auto;
     }
     .card-action {
       position: absolute;
