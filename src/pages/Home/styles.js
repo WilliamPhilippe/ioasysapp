@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
 
 export const Content = styled.div`
@@ -28,4 +28,20 @@ export const NavContent = styled.nav`
   /* background-color: #ee4c77; */
 `;
 
-export const CardContainer = styled.div``;
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Loading = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  i {
+    animation: ${rotate} 2s infinite;
+  }
+`;
