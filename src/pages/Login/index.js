@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 
@@ -11,14 +11,13 @@ import { sendSignIn } from './services';
 function Login() {
   const { register, handleSubmit, errors } = useForm();
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   async function onSubmit(data) {
     try {
       const response = await sendSignIn(data);
-
-      console.clear();
-      console.log(response.headersd);
     } catch (err) {
-      console.log('err', err.response);
+      setErrorMessage(err.response.errors[0]);
     }
   }
 
@@ -48,10 +47,6 @@ function Login() {
                     className="validate"
                   />
                   <label htmlFor="icon_prefix">E-mail</label>
-                  <span
-                    className="helper-text"
-                    data-error="Please, use a valid e-mail."
-                  />
                 </div>
               </div>
               <div className="row">
@@ -65,6 +60,11 @@ function Login() {
                     className="validate"
                   />
                   <label htmlFor="password">Password</label>
+                  {errorMessage && (
+                    <span className="error-text">
+                      Credenciais informadas são inválidas, tente novamente
+                    </span>
+                  )}
                 </div>
               </div>
               <button
