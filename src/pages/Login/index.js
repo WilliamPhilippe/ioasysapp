@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 
-import { Content, LogoContainer, FormContent, Loading } from './styles';
+import { Content, LogoContainer, FormContent } from './styles';
+
+import Loading from '../../components/Loading';
 
 import Logo from '../../assets/logo-login.png';
 
@@ -37,11 +39,7 @@ function Login({ history }) {
 
           <h5>Bem vindo ao Empresas</h5>
 
-          {loading && (
-            <Loading>
-              <i className="small material-icons">autorenew</i>
-            </Loading>
-          )}
+          {loading && <Loading />}
 
           <div className="row">
             <form className="col s12" onSubmit={handleSubmit(onSubmit)}>

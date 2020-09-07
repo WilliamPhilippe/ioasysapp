@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 export const Content = styled.div`
   height: 100%;
@@ -53,20 +53,5 @@ export const CheckAndLink = styled.div`
   label {
     display: block;
     color: red;
-  }
-`;
-
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-export const Loading = styled.div`
-  i {
-    animation: ${rotate} 2s infinite;
   }
 `;

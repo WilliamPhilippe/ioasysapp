@@ -1,15 +1,5 @@
 import styled from 'styled-components';
 
-export const Content = styled.div`
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  background-color: #ebe9d7;
-
-  box-sizing: border-box;
-`;
-
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;

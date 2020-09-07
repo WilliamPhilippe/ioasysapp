@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
-import {
-  Content,
-  LogoContainer,
-  NavContent,
-  Loading,
-  CardContent,
-} from './styles';
+import PropTypes from 'prop-types';
+
+import NavContent from '../../components/NavContainer';
+
+import Loading from '../../components/Loading';
+
+import { Content, CardContent } from './styles';
 
 import { getEmpresaById } from './services';
 
 import api from '../../services/api';
 
-import Logo from '../../assets/logo-white.png';
-
-function Home({ history, match }) {
-  !api.defaults.headers.common.uid && history.push('/login');
+function Details({ history, match }) {
+  if (!api.defaults.headers.common.uid) history.push('/login');
 
   const [empresa, setEmpresa] = useState({});
 
@@ -30,52 +28,37 @@ function Home({ history, match }) {
 
         setEmpresa(response.data.enterprise);
       } catch (err) {
-        // setMessageInfo(err.response.errors[0]);
+        history.push('/');
       } finally {
         setLoading(false);
       }
     }
 
     loadEnterprise();
-  }, [match.params.id]);
+  }, [history, match.params.id]);
 
   return (
     <Content>
       <div className="container">
-        <NavContent>
-          <div className="nav-wrapper">
-            <div className="row">
-              <div
-                onClick={() => history.push('/')}
-                style={{ cursor: 'pointer' }}
-                className="col s4"
-              >
-                <i className="material-icons">arrow_back</i>
-              </div>
-              <LogoContainer className="imgedit col s4">
-                <img
-                  src={Logo}
-                  alt="ioasys"
-                  style={{
-                    objectFit: 'cover',
-                    width: 'auto',
-                    height: 'auto',
-                    maxHeight: 50,
-                  }}
-                />
-              </LogoContainer>
+        <NavContent
+          intern={
+            <div
+              onClick={() => history.push('/')}
+              style={{ cursor: 'pointer' }}
+              className="col s4"
+            >
+              <i className="material-icons">arrow_back</i>
             </div>
-          </div>
-        </NavContent>
+          }
+        />
 
         {loading ? (
-          <Loading>
-            <i className="small material-icons">autorenew</i>
-          </Loading>
+          <Loading />
         ) : (
           <div className="card large">
             <div className="card-image waves-effect waves-block waves-light">
               <img
+                alt="empresa foto"
                 className="activator"
                 src={`https://empresas.ioasys.com.br${empresa.photo}`}
               />
@@ -107,4 +90,13 @@ function Home({ history, match }) {
   );
 }
 
-export default Home;
+Details.propTypes = {
+  history: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};
+
+export default Details;
