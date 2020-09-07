@@ -134,7 +134,14 @@ function Home({ history }) {
                             <p style={{ marginBottom: 10 }}>
                               {item.enterprise_type.enterprise_type_name}
                             </p>
-                            <a>detalhes</a>
+                            <a
+                              style={{ cursor: 'pointer' }}
+                              onClick={() =>
+                                history.push(`/details/${item.id}`)
+                              }
+                            >
+                              detalhes
+                            </a>
                           </div>
                         </div>
                       </div>

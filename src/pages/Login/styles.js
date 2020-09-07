@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-import { darken } from 'polished';
-
+import styled, { keyframes } from 'styled-components';
 
 export const Content = styled.div`
   height: 100%;
@@ -19,7 +17,6 @@ export const FormContent = styled.div`
 
   padding: 20px 20px 20px 20px;
   border-radius: 8px;
-
 
   transition: all 0.3s;
 `;
@@ -56,5 +53,20 @@ export const CheckAndLink = styled.div`
   label {
     display: block;
     color: red;
+  }
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Loading = styled.div`
+  i {
+    animation: ${rotate} 2s infinite;
   }
 `;

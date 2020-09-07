@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 
-import { Content, LogoContainer, FormContent } from './styles';
+import { Content, LogoContainer, FormContent, Loading } from './styles';
 
 import Logo from '../../assets/logo-login.png';
 
@@ -13,12 +13,17 @@ function Login({ history }) {
 
   const [errorMessage, setErrorMessage] = useState('');
 
+  const [loading, setLoading] = useState(false);
+
   async function onSubmit(data) {
+    setLoading(true);
     try {
       await sendSignIn(data);
       history.push('/');
     } catch (err) {
       setErrorMessage(err.response.errors[0]);
+    } finally {
+      setLoading(false);
     }
   }
 
