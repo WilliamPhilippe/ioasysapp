@@ -29,5 +29,5 @@ Originalmente o aplicativo foi desenvolvido usando Windows. Mas deve ser compat�
 - Entre na pasta raiz e execute `yarn` para instalar as dependências.
 - Depois de instalar as dependências, rode `yarn start` para rodar o projeto.
 
-O projeto está sendo rodado na porta 3006, caso você precise alterar, bastar ir em package.json e alterar a linha 'scripts start' para a sua porta.
+O projeto está sendo rodado na porta 3006 (http://localhost:3006/), caso você precise alterar, bastar ir em package.json e alterar a linha 'scripts start' para a sua porta.
 
