@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-
 export const Content = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   background-color: #ebe9d7;
 `;
 
@@ -20,7 +19,6 @@ export const FormContent = styled.div`
   padding: 20px 20px 20px 20px;
   border-radius: 8px;
 
-
   transition: all 0.3s;
 `;
 
@@ -32,14 +30,15 @@ export const InsideForm = styled.div`
 `;
 
 export const LogoContainer = styled.div`
-  width: 208px;
-  height: 64px;
-  margin: auto;
-  border-radius: 8px;
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  margin-top: 7px;
+
+  padding: 7px;
+
+  box-sizing: border-box;
 `;
 
 export const FormTitle = styled.h3`
@@ -57,4 +56,10 @@ export const CheckAndLink = styled.div`
     display: block;
     color: red;
   }
+`;
+
+export const NavContent = styled.nav`
+  background-image: linear-gradient(#ee4c77, #ce1a77);
+
+  /* background-color: #ee4c77; */
 `;

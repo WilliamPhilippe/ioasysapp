@@ -283,14 +283,13 @@ textarea.materialize-textarea {
 
   .nav-wrapper & {
     height: inherit;
-    padding-left: 4rem;
-    width: calc(100% - 4rem);
+    padding-left: 2rem;
+    width: calc(100% - 3rem);
     border: 0;
     box-shadow: none;
   }
 
   &:focus:not(.browser-default) {
-    background-color: $input-background;
     border: 0;
     box-shadow: none;
     color: #444;
@@ -304,7 +303,7 @@ textarea.materialize-textarea {
 
   & + .label-icon {
     transform: none;
-    left: 1rem;
+    left: 0rem;
   }
 
   & ~ .mdi-navigation-close,
