@@ -9,6 +9,11 @@ async function sendSignIn({ email, password }) {
       email,
       password,
     });
+
+    api.defaults.headers.common['access-token'] =
+      response.headers['access-token'];
+    api.defaults.headers.common.uid = response.headers.uid;
+    api.defaults.headers.common.client = response.headers.client;
   } catch (error) {
     throw new RequestException(error.response.data);
   }

@@ -8,14 +8,15 @@ import Logo from '../../assets/logo-login.png';
 
 import { sendSignIn } from './services';
 
-function Login() {
+function Login({ history }) {
   const { register, handleSubmit, errors } = useForm();
 
   const [errorMessage, setErrorMessage] = useState('');
 
   async function onSubmit(data) {
     try {
-      const response = await sendSignIn(data);
+      await sendSignIn(data);
+      history.push('/');
     } catch (err) {
       setErrorMessage(err.response.errors[0]);
     }
